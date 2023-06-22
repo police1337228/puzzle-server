@@ -1,6 +1,8 @@
 const AuthenticationController = require("./controllers/AuthenticationController");
-
 const AuthenticationControllerPolicy = require("./policies/AuthenticationControllerPolicy");
+
+const MailController = require("./controllers/MailController");
+const MailControllerPolicy = require("./policies/MailControllerPolicy");
 
 module.exports = (app) => {
   app.post(
@@ -16,4 +18,6 @@ module.exports = (app) => {
     AuthenticationControllerPolicy.save,
     AuthenticationController.save
   );
+
+  app.post("/api/mail", MailControllerPolicy.mail, MailController.mail);
 };
