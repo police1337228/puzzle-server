@@ -19,5 +19,7 @@ module.exports = (app) => {
     AuthenticationController.save
   );
 
-  app.post("/api/mail", MailControllerPolicy.mail, MailController.mail);
+  app.post("/api/mail/", MailControllerPolicy.mail, MailController.mail);
+
+  app.post("/api/mail-register/", MailController.mailRegister);
 };
